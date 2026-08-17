@@ -35,14 +35,6 @@ export async function GET(request: NextRequest) {
     `${clientId}:${clientSecret}`
   ).toString("base64");
 
-  console.log("X OAuth diagnostic:", {
-  hasClientId: Boolean(clientId),
-  clientIdLength: clientId?.length,
-  hasClientSecret: Boolean(clientSecret),
-  clientSecretLength: clientSecret?.length,
-  basicAuthLength: basicAuth.length,
-  basicAuthStartsCorrectly: basicAuth.startsWith(""),
-});
 
   const tokenResponse = await fetch("https://api.x.com/2/oauth2/token", {
     method: "POST",
